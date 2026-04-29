@@ -222,15 +222,7 @@
             max-width: 360px;
         }
 
-        .hero-cta:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 10px 28px rgba(245, 158, 11, 0.45);
-        }
-
-        .hero-cta:active {
-            transform: scale(0.96);
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-        }
+        .hero-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(245,158,11,.45)}.hero-cta:active{transform:scale(.96);box-shadow:0 4px 15px rgba(245,158,11,.3)}
 
         .hero-benefits {
             display: flex;
@@ -489,17 +481,7 @@
             }
         }
 
-        .receber-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(58, 123, 213, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+.receber-card{cursor:pointer;will-change:transform}.why-card{cursor:pointer;will-change:transform}
 
         .receber-card:hover,
         .receber-card:active {
@@ -1299,13 +1281,7 @@
             width: 100%;
         }
 
-        .carousel-track {
-            display: flex;
-            transition: transform 0.4s ease-out;
-            will-change: transform;
-            cursor: grab;
-            touch-action: pan-y;
-        }
+        .carousel-track{transition:transform .4s ease-out;will-change:transform;cursor:grab;touch-action:pan-Y}
 
         .carousel-track:active {
             cursor: grabbing;
@@ -2523,75 +2499,9 @@
             });
         }
 
-        function initCarousel() {
-            const carousels = document.querySelectorAll('.carousel-container');
+function initCarousel(){const carousels=document.querySelectorAll('.carousel-container');carousels.forEach(container=>{const track=container.querySelector('.carousel-track');if(!track)return;const slides=Array.from(track.children);const nextBtn=container.querySelector('.carousel-arrow.next');const prevBtn=container.querySelector('.carousel-arrow.prev');const dots=Array.from(container.querySelectorAll('.carousel-dots .dot'));let currentIndex=0;const totalSlides=slides.length;let startPos=0;let currentTranslate=0;let prevTranslate=0;let isDragging=false;let autoPlayInterval;let slideWidth=0;function getSlideWidth(){if(slideWidth===0&&slides[0]){slideWidth=slides[0].getBoundingClientRect().width||slides[0].clientWidth||340}return slideWidth}
 
-            carousels.forEach(container => {
-                const track = container.querySelector('.carousel-track');
-                if (!track) return;
-
-                const slides = Array.from(track.children);
-                const nextBtn = container.querySelector('.carousel-arrow.next');
-                const prevBtn = container.querySelector('.carousel-arrow.prev');
-                const dots = Array.from(container.querySelectorAll('.carousel-dots .dot'));
-
-                let currentIndex = 0;
-                const totalSlides = slides.length;
-                let startPos = 0;
-                let currentTranslate = 0;
-                let prevTranslate = 0;
-                let isDragging = false;
-                let autoPlayInterval;
-
-                function setSlidePosition() {
-                    track.style.transform = `translateX(${currentTranslate}px)`;
-                }
-
-                function updateDots() {
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentIndex);
-                    });
-                }
-
-                function goToSlide(index) {
-                    currentIndex = index;
-                    if (currentIndex < 0) currentIndex = totalSlides - 1;
-                    if (currentIndex >= totalSlides) currentIndex = 0;
-
-                    const slideWidth = slides[0].clientWidth;
-                    currentTranslate = currentIndex * -slideWidth;
-                    prevTranslate = currentTranslate;
-                    track.style.transition = 'transform 0.4s ease-out';
-                    setSlidePosition();
-                    updateDots();
-                    resetAutoplay();
-                }
-
-                function nextSlide() {
-                    goToSlide(currentIndex + 1);
-                }
-
-                function prevSlide() {
-                    goToSlide(currentIndex - 1);
-                }
-
-                function touchStart(index) {
-                    return function (event) {
-                        isDragging = true;
-                        startPos = getPositionX(event);
-                        track.style.transition = 'none';
-                        clearInterval(autoPlayInterval);
-                    }
-                }
-
-                function touchMove(event) {
-                    if (isDragging) {
-                        const currentPosition = getPositionX(event);
-                        const diff = currentPosition - startPos;
-                        currentTranslate = prevTranslate + diff;
-                        setSlidePosition();
-                    }
-                }
+                function nextSlide(){goToSlide(currentIndex+1)}function prevSlide(){goToSlide(currentIndex-1)}function getSlideWidth(){return slideWidth||((slideWidth=slides[0].getBoundingClientRect().width)||340)}function touchStart(index){return function(event){isDragging=true;startPos=getPositionX(event);track.style.transition='none';clearInterval(autoPlayInterval)}}function touchMove(event){if(isDragging){const currentPosition=getPositionX(event);const diff=currentPosition-startPos;currentTranslate=prevTranslate+diff;track.style.transform=`translateX(${currentTranslate}px)`}}
 
                 function touchEnd() {
                     isDragging = false;
