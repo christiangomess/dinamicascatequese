@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="public, max-age=31536000, immutable">
     <title>+150 Dinâmicas Lúdicas para Catequese</title>
     <script>
         (function () {
@@ -27,9 +28,9 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
     <meta name="description" content="Material completo, organizado e pronto para aplicar na catequese">
     <style>
         body {
@@ -2667,17 +2668,47 @@
         });
     </script>
 
+    <!-- Carregamento Otimizado de Scripts de Rastreamento (Utmify / Facebook / Clarity) -->
     <script>
-        window.pixelId = "69e2bcbd6ae1a8d31e69f902";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
-    </script>
+        (function() {
+            let scriptsLoaded = false;
+            
+            function loadTrackingScripts() {
+                if (scriptsLoaded) return;
+                scriptsLoaded = true;
 
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
-        data-utmify-prevent-subids async defer></script>
+                // 1. Utmify Pixel
+                window.pixelId = "69e2bcbd6ae1a8d31e69f902";
+                const utmPixel = document.createElement("script");
+                utmPixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+                utmPixel.async = true;
+                utmPixel.defer = true;
+                document.head.appendChild(utmPixel);
+
+                // 2. Utmify Latest Scripts
+                const utmLatest = document.createElement("script");
+                utmLatest.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+                utmLatest.setAttribute("data-utmify-prevent-xcod-sck", "");
+                utmLatest.setAttribute("data-utmify-prevent-subids", "");
+                utmLatest.async = true;
+                utmLatest.defer = true;
+                document.head.appendChild(utmLatest);
+
+                // Remover os EventListeners após o carregamento para poupar memória
+                window.removeEventListener('scroll', loadTrackingScripts);
+                window.removeEventListener('mousemove', loadTrackingScripts);
+                window.removeEventListener('touchstart', loadTrackingScripts);
+                window.removeEventListener('click', loadTrackingScripts);
+            }
+
+            // Atrasar o carregamento para quando o usuário interagir com a página OU após 4 segundos
+            window.addEventListener('scroll', loadTrackingScripts, { passive: true });
+            window.addEventListener('mousemove', loadTrackingScripts, { passive: true });
+            window.addEventListener('touchstart', loadTrackingScripts, { passive: true });
+            window.addEventListener('click', loadTrackingScripts, { passive: true });
+            setTimeout(loadTrackingScripts, 4000);
+        })();
+    </script>
 
 </body>
 
