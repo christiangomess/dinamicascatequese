@@ -4,26 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-control" content="public, max-age=31536000, immutable">
-    <title>+150 Dinâmicas Lúdicas para Catequese</title>
-    <script>
+<meta http-equiv="Cache-control" content="public, max-age=31536000, immutable">
+    <script defer>
         (function () {
             var protocol = window.location.protocol;
-
-            if (protocol === 'file:') {
-                console.log("Modo local: acesso liberado");
-                return;
-            }
-
+            if (protocol === 'file:') return;
             var urlParams = new URLSearchParams(window.location.search);
             var hasUtmSource = urlParams.has('utm_source');
-
-            if (hasUtmSource) {
-                console.log("Modo liberado: utm_source detectado");
-            } else {
-                console.log("Modo bloqueado: sem utm_source");
-                document.documentElement.classList.add('utm-blocked');
-            }
+            if (!hasUtmSource) document.documentElement.classList.add('utm-blocked');
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1685,8 +1673,7 @@
             Material completo, organizado e pronto para aplicar. Economize horas de preparo e torne seus encontros mais
             envolventes para as crianças.
         </p>
-        <img src="mockup3d.webp" alt="Mockup do Produto" class="hero-mockup" width="340" height="auto"
-            fetchpriority="high">
+        <img src="mockup3d.webp" alt="Mockup do Produto" class="hero-mockup" width="340" height="220">
         <p class="hero-proof">🔥 +2.787 catequistas ficaram satisfeitas!</p>
         <a href="#precos" class="hero-cta">QUERO COMEÇAR AGORA</a>
         <div class="hero-benefits">
