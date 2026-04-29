@@ -2499,9 +2499,7 @@
             });
         }
 
-function initCarousel(){const carousels=document.querySelectorAll('.carousel-container');carousels.forEach(container=>{const track=container.querySelector('.carousel-track');if(!track)return;const slides=Array.from(track.children);const nextBtn=container.querySelector('.carousel-arrow.next');const prevBtn=container.querySelector('.carousel-arrow.prev');const dots=Array.from(container.querySelectorAll('.carousel-dots .dot'));let currentIndex=0;const totalSlides=slides.length;let startPos=0;let currentTranslate=0;let prevTranslate=0;let isDragging=false;let autoPlayInterval;let slideWidth=0;function getSlideWidth(){if(slideWidth===0&&slides[0]){slideWidth=slides[0].getBoundingClientRect().width||slides[0].clientWidth||340}return slideWidth}
-
-                function nextSlide(){goToSlide(currentIndex+1)}function prevSlide(){goToSlide(currentIndex-1)}function getSlideWidth(){return slideWidth||((slideWidth=slides[0].getBoundingClientRect().width)||340)}function touchStart(index){return function(event){isDragging=true;startPos=getPositionX(event);track.style.transition='none';clearInterval(autoPlayInterval)}}function touchMove(event){if(isDragging){const currentPosition=getPositionX(event);const diff=currentPosition-startPos;currentTranslate=prevTranslate+diff;track.style.transform=`translateX(${currentTranslate}px)`}}
+function initCarousel(){const carousels=document.querySelectorAll('.carousel-container');carousels.forEach(container=>{const track=container.querySelector('.carousel-track');if(!track)return;const slides=Array.from(track.children);const nextBtn=container.querySelector('.carousel-arrow.next');const prevBtn=container.querySelector('.carousel-arrow.prev');const dots=Array.from(container.querySelectorAll('.carousel-dots .dot'));let currentIndex=0;const totalSlides=slides.length;let startPos=0;let currentTranslate=0;let prevTranslate=0;let isDragging=false;let autoPlayInterval;function goToSlide(index){currentIndex=index;if(currentIndex<0)currentIndex=totalSlides-1;if(currentIndex>=totalSlides)currentIndex=0;const slideWidth=container.querySelector('.carousel-slide').getBoundingClientRect().width;currentTranslate=currentIndex*-slideWidth;prevTranslate=currentTranslate;track.style.transition='transform 0.4s ease-out';track.style.transform=`translateX(${currentTranslate}px)`;dots.forEach((dot,i)=>{dot.classList.toggle('active',i===currentIndex)});clearInterval(autoPlayInterval);autoPlayInterval=setInterval(()=>{currentIndex++;if(currentIndex>=totalSlides)currentIndex=0;track.style.transition='transform 0.4s ease-out';track.style.transform=`translateX(${currentIndex*-slideWidth}px)`;prevTranslate=currentIndex*-slideWidth;dots.forEach((dot,i)=>{dot.classList.toggle('active',i===currentIndex)})},7e3)}function nextSlide(){goToSlide(currentIndex+1)}function prevSlide(){goToSlide(currentIndex-1)}function touchStart(index){return function(event){isDragging=true;startPos=getPositionX(event);track.style.transition='none';clearInterval(autoPlayInterval)}}function touchMove(event){if(isDragging){const currentPosition=getPositionX(event);const diff=currentPosition-startPos;currentTranslate=prevTranslate+diff;track.style.transform=`translateX(${currentTranslate}px)`}}
 
                 function touchEnd() {
                     isDragging = false;
@@ -2550,23 +2548,9 @@ function initCarousel(){const carousels=document.querySelectorAll('.carousel-con
                     });
                 });
 
-                window.addEventListener('resize', () => {
-                    track.style.transition = 'none';
-                    goToSlide(currentIndex);
-                });
+                window.addEventListener('resize', ()=>{requestAnimationFrame(()=>{track.style.transition='none';goToSlide(currentIndex)})})
 
-                function startAutoplay() {
-                    autoPlayInterval = setInterval(nextSlide, 7000);
-                }
-
-                function resetAutoplay() {
-                    clearInterval(autoPlayInterval);
-                    startAutoplay();
-                }
-
-                setTimeout(() => {
-                    goToSlide(0);
-                }, 100);
+                function requestAnimationFrame(()=>{requestAnimationFrame(()=>{goToSlide(0)})})
             });
         }
 
