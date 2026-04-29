@@ -4,21 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-control" content="public, max-age=31536000, immutable">
-    <script defer>
+    <title>+150 Dinâmicas Lúdicas para Catequese</title>
+    <script>
         (function () {
             var protocol = window.location.protocol;
-            if (protocol === 'file:') return;
+
+            if (protocol === 'file:') {
+                console.log("Modo local: acesso liberado");
+                return;
+            }
+
             var urlParams = new URLSearchParams(window.location.search);
             var hasUtmSource = urlParams.has('utm_source');
-            if (!hasUtmSource) document.documentElement.classList.add('utm-blocked');
+
+            if (hasUtmSource) {
+                console.log("Modo liberado: utm_source detectado");
+            } else {
+                console.log("Modo bloqueado: sem utm_source");
+                document.documentElement.classList.add('utm-blocked');
+            }
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <meta name="description" content="Material completo, organizado e pronto para aplicar na catequese">
     <style>
         body {
@@ -210,7 +221,15 @@
             max-width: 360px;
         }
 
-        .hero-cta:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 28px rgba(245,158,11,.45)}.hero-cta:active{transform:scale(.96);box-shadow:0 4px 15px rgba(245,158,11,.3)}
+        .hero-cta:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 28px rgba(245, 158, 11, 0.45);
+        }
+
+        .hero-cta:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
 
         .hero-benefits {
             display: flex;
@@ -469,7 +488,17 @@
             }
         }
 
-.receber-card{cursor:pointer;will-change:transform}.why-card{cursor:pointer;will-change:transform}
+        .receber-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(58, 123, 213, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
         .receber-card:hover,
         .receber-card:active {
@@ -1269,7 +1298,13 @@
             width: 100%;
         }
 
-        .carousel-track{transition:transform .4s ease-out;will-change:transform;cursor:grab;touch-action:pan-Y}
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-out;
+            will-change: transform;
+            cursor: grab;
+            touch-action: pan-y;
+        }
 
         .carousel-track:active {
             cursor: grabbing;
@@ -1673,7 +1708,8 @@
             Material completo, organizado e pronto para aplicar. Economize horas de preparo e torne seus encontros mais
             envolventes para as crianças.
         </p>
-        <img src="mockup3d.webp" alt="Mockup do Produto" class="hero-mockup" width="340" height="220">
+        <img src="mockup3d.webp" alt="Mockup do Produto" class="hero-mockup" width="340" height="auto"
+            fetchpriority="high">
         <p class="hero-proof">🔥 +2.787 catequistas ficaram satisfeitas!</p>
         <a href="#precos" class="hero-cta">QUERO COMEÇAR AGORA</a>
         <div class="hero-benefits">
@@ -2486,7 +2522,75 @@
             });
         }
 
-function initCarousel(){const carousels=document.querySelectorAll('.carousel-container');carousels.forEach(container=>{const track=container.querySelector('.carousel-track');if(!track)return;const slides=Array.from(track.children);const nextBtn=container.querySelector('.carousel-arrow.next');const prevBtn=container.querySelector('.carousel-arrow.prev');const dots=Array.from(container.querySelectorAll('.carousel-dots .dot'));let currentIndex=0;const totalSlides=slides.length;let startPos=0;let currentTranslate=0;let prevTranslate=0;let isDragging=false;let autoPlayInterval;function goToSlide(index){currentIndex=index;if(currentIndex<0)currentIndex=totalSlides-1;if(currentIndex>=totalSlides)currentIndex=0;const slideWidth=container.querySelector('.carousel-slide').getBoundingClientRect().width;currentTranslate=currentIndex*-slideWidth;prevTranslate=currentTranslate;track.style.transition='transform 0.4s ease-out';track.style.transform=`translateX(${currentTranslate}px)`;dots.forEach((dot,i)=>{dot.classList.toggle('active',i===currentIndex)});clearInterval(autoPlayInterval);autoPlayInterval=setInterval(()=>{currentIndex++;if(currentIndex>=totalSlides)currentIndex=0;track.style.transition='transform 0.4s ease-out';track.style.transform=`translateX(${currentIndex*-slideWidth}px)`;prevTranslate=currentIndex*-slideWidth;dots.forEach((dot,i)=>{dot.classList.toggle('active',i===currentIndex)})},7e3)}function nextSlide(){goToSlide(currentIndex+1)}function prevSlide(){goToSlide(currentIndex-1)}function touchStart(index){return function(event){isDragging=true;startPos=getPositionX(event);track.style.transition='none';clearInterval(autoPlayInterval)}}function touchMove(event){if(isDragging){const currentPosition=getPositionX(event);const diff=currentPosition-startPos;currentTranslate=prevTranslate+diff;track.style.transform=`translateX(${currentTranslate}px)`}}
+        function initCarousel() {
+            const carousels = document.querySelectorAll('.carousel-container');
+
+            carousels.forEach(container => {
+                const track = container.querySelector('.carousel-track');
+                if (!track) return;
+
+                const slides = Array.from(track.children);
+                const nextBtn = container.querySelector('.carousel-arrow.next');
+                const prevBtn = container.querySelector('.carousel-arrow.prev');
+                const dots = Array.from(container.querySelectorAll('.carousel-dots .dot'));
+
+                let currentIndex = 0;
+                const totalSlides = slides.length;
+                let startPos = 0;
+                let currentTranslate = 0;
+                let prevTranslate = 0;
+                let isDragging = false;
+                let autoPlayInterval;
+
+                function setSlidePosition() {
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                }
+
+                function updateDots() {
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+
+                function goToSlide(index) {
+                    currentIndex = index;
+                    if (currentIndex < 0) currentIndex = totalSlides - 1;
+                    if (currentIndex >= totalSlides) currentIndex = 0;
+
+                    const slideWidth = slides[0].clientWidth;
+                    currentTranslate = currentIndex * -slideWidth;
+                    prevTranslate = currentTranslate;
+                    track.style.transition = 'transform 0.4s ease-out';
+                    setSlidePosition();
+                    updateDots();
+                    resetAutoplay();
+                }
+
+                function nextSlide() {
+                    goToSlide(currentIndex + 1);
+                }
+
+                function prevSlide() {
+                    goToSlide(currentIndex - 1);
+                }
+
+                function touchStart(index) {
+                    return function (event) {
+                        isDragging = true;
+                        startPos = getPositionX(event);
+                        track.style.transition = 'none';
+                        clearInterval(autoPlayInterval);
+                    }
+                }
+
+                function touchMove(event) {
+                    if (isDragging) {
+                        const currentPosition = getPositionX(event);
+                        const diff = currentPosition - startPos;
+                        currentTranslate = prevTranslate + diff;
+                        setSlidePosition();
+                    }
+                }
 
                 function touchEnd() {
                     isDragging = false;
@@ -2535,9 +2639,23 @@ function initCarousel(){const carousels=document.querySelectorAll('.carousel-con
                     });
                 });
 
-                window.addEventListener('resize', ()=>{requestAnimationFrame(()=>{track.style.transition='none';goToSlide(currentIndex)})})
+                window.addEventListener('resize', () => {
+                    track.style.transition = 'none';
+                    goToSlide(currentIndex);
+                });
 
-                function requestAnimationFrame(()=>{requestAnimationFrame(()=>{goToSlide(0)})})
+                function startAutoplay() {
+                    autoPlayInterval = setInterval(nextSlide, 7000);
+                }
+
+                function resetAutoplay() {
+                    clearInterval(autoPlayInterval);
+                    startAutoplay();
+                }
+
+                setTimeout(() => {
+                    goToSlide(0);
+                }, 100);
             });
         }
 
@@ -2549,47 +2667,17 @@ function initCarousel(){const carousels=document.querySelectorAll('.carousel-con
         });
     </script>
 
-    <!-- Carregamento Otimizado de Scripts de Rastreamento (Utmify / Facebook / Clarity) -->
     <script>
-        (function() {
-            let scriptsLoaded = false;
-            
-            function loadTrackingScripts() {
-                if (scriptsLoaded) return;
-                scriptsLoaded = true;
-
-                // 1. Utmify Pixel
-                window.pixelId = "69e2bcbd6ae1a8d31e69f902";
-                const utmPixel = document.createElement("script");
-                utmPixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-                utmPixel.async = true;
-                utmPixel.defer = true;
-                document.head.appendChild(utmPixel);
-
-                // 2. Utmify Latest Scripts
-                const utmLatest = document.createElement("script");
-                utmLatest.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-                utmLatest.setAttribute("data-utmify-prevent-xcod-sck", "");
-                utmLatest.setAttribute("data-utmify-prevent-subids", "");
-                utmLatest.async = true;
-                utmLatest.defer = true;
-                document.head.appendChild(utmLatest);
-
-                // Remover os EventListeners após o carregamento para poupar memória
-                window.removeEventListener('scroll', loadTrackingScripts);
-                window.removeEventListener('mousemove', loadTrackingScripts);
-                window.removeEventListener('touchstart', loadTrackingScripts);
-                window.removeEventListener('click', loadTrackingScripts);
-            }
-
-            // Atrasar o carregamento para quando o usuário interagir com a página OU após 4 segundos
-            window.addEventListener('scroll', loadTrackingScripts, { passive: true });
-            window.addEventListener('mousemove', loadTrackingScripts, { passive: true });
-            window.addEventListener('touchstart', loadTrackingScripts, { passive: true });
-            window.addEventListener('click', loadTrackingScripts, { passive: true });
-            setTimeout(loadTrackingScripts, 4000);
-        })();
+        window.pixelId = "69e2bcbd6ae1a8d31e69f902";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
     </script>
+
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script>
 
 </body>
 
