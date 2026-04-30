@@ -1153,6 +1153,9 @@
             justify-content: center;
             min-height: 44px;
             will-change: transform;
+            border: none;
+            font-family: inherit;
+            cursor: pointer;
         }
 
         .pricing-card.premium .card-btn {
@@ -2054,8 +2057,8 @@
 
                     <div style="flex-grow: 1;"></div>
 
-                    <a href="" class="card-btn" id="btn-basic-plan">QUERO ACESSO
-                        BÁSICO</a>
+                    <button type="button" class="card-btn" id="btn-basic-plan">QUERO ACESSO
+                        BÁSICO</button>
                 </div>
 
             </div>
@@ -2488,6 +2491,7 @@
 
             basicBtn.addEventListener('click', function (e) {
                 e.preventDefault();
+                e.stopPropagation();
                 modal.classList.add('active');
             });
 
@@ -2495,7 +2499,10 @@
                 modal.classList.remove('active');
             }
 
-            closeBtn.addEventListener('click', closeModal);
+            closeBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                closeModal();
+            });
 
             modal.addEventListener('click', function (e) {
                 if (e.target === modal) {
@@ -2503,9 +2510,10 @@
                 }
             });
 
-            continueBasic.addEventListener('click', function () {
+            continueBasic.addEventListener('click', function (e) {
+                e.preventDefault();
                 closeModal();
-                window.location.href = basicBtn.href;
+                window.location.href = "https://pay.wiapy.com/tG1kplN20K";
             });
         });
     </script>
