@@ -1692,25 +1692,14 @@
             padding-bottom: 16px;
         }
     </style>
-
-    <script>
-        // Clarity - carregamento atrasado (5 segundos ou após interação)
-        function loadClarity() {
-            if (window.clarityLoaded) return;
-            window.clarityLoaded = true;
-            (function (c, l, a, r, i, t, y) {
-                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-            })(window, document, "clarity", "script", "wddp78e87q");
-        }
-        
-        // Carrega após 5 segundos ou após primeira interação
-        setTimeout(loadClarity, 5000);
-        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function(event) {
-            window.addEventListener(event, loadClarity, { once: true, passive: true });
-        });
-    </script>
+    
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wjhyb0jl1u");
+</script>
 </head>
 
 <body>
@@ -2767,23 +2756,22 @@
         });
     </script>
 
-    <script defer>
-        // Utmify tracker - carregamento atrasado
-        function loadUtmifyTracker() {
-            if (window.utmifyTrackerLoaded) return;
-            window.utmifyTrackerLoaded = true;
-            var s = document.createElement("script");
-            s.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-            s.setAttribute("data-utmify-prevent-xcod-sck", "");
-            s.setAttribute("data-utmify-prevent-subids", "");
-            s.setAttribute("async", "async");
-            document.head.appendChild(s);
-        }
-        setTimeout(loadUtmifyTracker, 4000);
-        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function(event) {
-            window.addEventListener(event, loadUtmifyTracker, { once: true, passive: true });
-        });
-    </script>
+    <script>
+  window.pixelId = "69f292076faf6ae0dc06a191";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
 </body>
 
