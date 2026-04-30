@@ -2273,7 +2273,7 @@
     </footer>
 
     <style>
-        /* MODAL UPSELL */
+/* MODAL UPSELL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -2290,6 +2290,7 @@
             transition: opacity 0.3s ease, visibility 0.3s ease;
             backdrop-filter: blur(6px);
             will-change: opacity;
+            padding: 16px;
         }
 
         .modal-overlay.active {
@@ -2302,7 +2303,7 @@
             width: 90%;
             max-width: 480px;
             border-radius: 16px;
-            padding: 32px 24px;
+            padding: 20px 16px 12px;
             position: relative;
             transform: scale(0.95) translateY(20px);
             transition: transform 0.3s ease, opacity 0.3s ease;
@@ -2312,7 +2313,7 @@
             align-items: center;
             text-align: center;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow: visible;
             font-family: 'Poppins', sans-serif;
             will-change: transform, opacity;
         }
@@ -2323,11 +2324,11 @@
 
         .modal-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 12px;
+            right: 12px;
             background: none;
             border: none;
-            font-size: 28px;
+            font-size: 26px;
             color: #9CA3AF;
             cursor: pointer;
             transition: color 0.2s;
@@ -2343,26 +2344,26 @@
         .modal-badge {
             background: #EFF6FF;
             color: #3A7BD5;
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .modal-title {
             color: #111827;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1.2;
         }
 
         .modal-subtitle {
             color: #4B5563;
-            font-size: 15px;
-            margin-bottom: 24px;
+            font-size: 13px;
+            margin-bottom: 16px;
             line-height: 1.4;
         }
 
@@ -2370,24 +2371,24 @@
             background: #F4F8FF;
             border: 2px solid #3A7BD5;
             border-radius: 12px;
-            padding: 20px;
+            padding: 14px;
             width: 100%;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             text-align: center;
             box-shadow: 0 8px 25px rgba(58, 123, 213, 0.08);
         }
 
-        .modal-card-inner-title {
+        .modal-card_inner-title {
             color: #111827;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .modal-card-inner-desc {
             color: #4B5563;
-            font-size: 14px;
-            margin-bottom: 16px;
+            font-size: 12px;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
 
@@ -2395,19 +2396,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .modal-price-old {
             color: #9CA3AF;
             text-decoration: line-through;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
         }
 
         .modal-price-new {
             color: #3A7BD5;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 800;
         }
 
@@ -2415,8 +2416,8 @@
             background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
             color: #ffffff;
             font-weight: 800;
-            font-size: 16px;
-            padding: 16px 24px;
+            font-size: 14px;
+            padding: 14px 20px;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -2424,12 +2425,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 56px;
+            min-height: 48px;
             width: 100%;
             box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             will-change: transform;
         }
 
@@ -2439,21 +2440,46 @@
             background: linear-gradient(180deg, #FBBF24 0%, #EA580C 100%);
         }
 
-        .modal-secondary-btn {
-            background: none;
-            border: none;
-            color: #6B7280;
-            font-size: 14px;
-            cursor: pointer;
-            text-decoration: underline;
-            transition: color 0.2s;
-            font-family: inherit;
-        }
-
-        .modal-secondary-btn:hover {
-            color: #374151;
-        }
-    </style>
+        @media (min-width: 480px) {
+            .modal-content {
+                padding: 28px 20px 16px;
+            }
+            .modal-badge {
+                font-size: 14px;
+                padding: 6px 16px;
+                margin-bottom: 16px;
+            }
+            .modal-title {
+                font-size: 22px;
+                margin-bottom: 12px;
+            }
+            .modal-subtitle {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            .modal-card-inner {
+                padding: 18px;
+                margin-bottom: 20px;
+            }
+            .modal-card_inner-title {
+                font-size: 17px;
+            }
+            .modal-card-inner-desc {
+                font-size: 13px;
+            }
+            .modal-price-old {
+                font-size: 15px;
+            }
+            .modal-price-new {
+                font-size: 26px;
+            }
+            .modal-cta {
+                font-size: 15px;
+                padding: 16px 24px;
+                min-height: 52px;
+                margin-bottom: 16px;
+            }
+        </style>
 
     <!-- UPSELL MODAL -->
     <div class="modal-overlay" id="upsell-modal">
