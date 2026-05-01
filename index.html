@@ -2750,26 +2750,14 @@
         });
     </script>
 
-    <script>
-        // Utmify/Facebook Pixel - carregamento atrasado (3 segundos ou após interação)
-        function loadUtmify() {
-            if (window.utmifyLoaded) return;
-            window.utmifyLoaded = true;
-
-            window.pixelId = "69e2bcbd6ae1a8d31e69f902";
-            var a = document.createElement("script");
-            a.setAttribute("async", "");
-            a.setAttribute("defer", "");
-            a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-            document.head.appendChild(a);
-        }
-
-        // Carrega após 3 segundos ou após primeira interação
-        setTimeout(loadUtmify, 3000);
-        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
-            window.addEventListener(event, loadUtmify, { once: true, passive: true });
-        });
-    </script>
+<script>
+  window.pixelId = "69f3fd116a598b8b2a59bb1b";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
