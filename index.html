@@ -1692,14 +1692,25 @@
             padding-bottom: 16px;
         }
     </style>
-    
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wjhyb0jl1u");
-</script>
+
+    <script>
+        // Clarity - carregamento atrasado (5 segundos ou após interação)
+        function loadClarity() {
+            if (window.clarityLoaded) return;
+            window.clarityLoaded = true;
+            (function (c, l, a, r, i, t, y) {
+                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "wddp78e87q");
+        }
+
+        // Carrega após 5 segundos ou após primeira interação
+        setTimeout(loadClarity, 5000);
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
+            window.addEventListener(event, loadClarity, { once: true, passive: true });
+        });
+    </script>
 </head>
 
 <body>
@@ -1714,21 +1725,16 @@
     <section class="hero-section">
         <h1 class="hero-headline">
             <span class="highlight">+150 Dinâmicas Lúdicas</span><br> para uma Catequese Infantil<br> <span
-                class="highlight">3x Mais Envolvente</span>
+                class="highlight">Mais Divertida E Sem Improvisação</span>
         </h1>
         <p class="hero-subheadline">
-            Material completo, organizado e pronto para aplicar. Economize horas de preparo e torne seus encontros mais
-            envolventes para as crianças.
+            Material completo, organizado e pronto para aplicar. Torne seus encontros
+            mais
+            envolventes para seus catequizandos.
         </p>
-        <img src="mockup3d.webp" 
-            srcset="mockup3d.webp 340w, mockup3d.webp 380w"
-            sizes="(max-width: 768px) 340px, 380px"
-            alt="Mockup do Produto" 
-            class="hero-mockup" 
-            width="340" 
-            height="220"
-            fetchpriority="high">
-        <p class="hero-proof">🔥 +2.787 catequistas ficaram satisfeitas!</p>
+        <img src="mockup3d.webp" srcset="mockup3d.webp 340w, mockup3d.webp 380w" sizes="(max-width: 768px) 340px, 380px"
+            alt="Mockup do Produto" class="hero-mockup" width="340" height="220" fetchpriority="high">
+        <p class="hero-proof">🔥 +2.787 catequistas deixaram de improvisar!</p>
         <a href="#precos" class="hero-cta">QUERO COMEÇAR AGORA</a>
         <div class="hero-benefits">
             <div class="hero-benefit-item">
@@ -2262,7 +2268,7 @@
     </footer>
 
     <style>
-/* MODAL UPSELL */
+        /* MODAL UPSELL */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -2449,42 +2455,51 @@
             .modal-content {
                 padding: 28px 20px 16px;
             }
+
             .modal-badge {
                 font-size: 14px;
                 padding: 6px 16px;
                 margin-bottom: 16px;
             }
+
             .modal-title {
                 font-size: 22px;
                 margin-bottom: 12px;
             }
+
             .modal-subtitle {
                 font-size: 14px;
                 margin-bottom: 20px;
             }
+
             .modal-card-inner {
                 padding: 18px;
                 margin-bottom: 20px;
             }
+
             .modal-card_inner-title {
                 font-size: 17px;
             }
+
             .modal-card-inner-desc {
                 font-size: 13px;
             }
+
             .modal-price-old {
                 font-size: 15px;
             }
+
             .modal-price-new {
                 font-size: 26px;
             }
+
             .modal-cta {
                 font-size: 15px;
                 padding: 16px 24px;
                 min-height: 52px;
                 margin-bottom: 16px;
             }
-        </style>
+    </style>
 
     <!-- UPSELL MODAL -->
     <div class="modal-overlay" id="upsell-modal">
@@ -2740,7 +2755,7 @@
         function loadUtmify() {
             if (window.utmifyLoaded) return;
             window.utmifyLoaded = true;
-            
+
             window.pixelId = "69e2bcbd6ae1a8d31e69f902";
             var a = document.createElement("script");
             a.setAttribute("async", "");
@@ -2748,30 +2763,31 @@
             a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
             document.head.appendChild(a);
         }
-        
+
         // Carrega após 3 segundos ou após primeira interação
         setTimeout(loadUtmify, 3000);
-        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function(event) {
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
             window.addEventListener(event, loadUtmify, { once: true, passive: true });
         });
     </script>
 
-    <script>
-  window.pixelId = "69f292076faf6ae0dc06a191";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+    <script defer>
+        // Utmify tracker - carregamento atrasado
+        function loadUtmifyTracker() {
+            if (window.utmifyTrackerLoaded) return;
+            window.utmifyTrackerLoaded = true;
+            var s = document.createElement("script");
+            s.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+            s.setAttribute("data-utmify-prevent-xcod-sck", "");
+            s.setAttribute("data-utmify-prevent-subids", "");
+            s.setAttribute("async", "async");
+            document.head.appendChild(s);
+        }
+        setTimeout(loadUtmifyTracker, 4000);
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
+            window.addEventListener(event, loadUtmifyTracker, { once: true, passive: true });
+        });
+    </script>
 
 </body>
 
