@@ -2156,7 +2156,7 @@
         }
     </style>
 
-    <script>
+ <script>
         // Clarity - carregamento atrasado (5 segundos ou após interação)
         function loadClarity() {
             if (window.clarityLoaded) return;
@@ -3369,23 +3369,23 @@
         });
     </script>
 
-    <script defer>
-        // Utmify tracker - carregamento atrasado
-        function loadUtmifyTracker() {
-            if (window.utmifyTrackerLoaded) return;
-            window.utmifyTrackerLoaded = true;
-            var s = document.createElement("script");
-            s.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
-            s.setAttribute("data-utmify-prevent-xcod-sck", "");
-            s.setAttribute("data-utmify-prevent-subids", "");
-            s.setAttribute("async", "async");
-            document.head.appendChild(s);
-        }
-        setTimeout(loadUtmifyTracker, 4000);
-        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
-            window.addEventListener(event, loadUtmifyTracker, { once: true, passive: true });
-        });
-    </script>
+<script>
+  window.pixelId = "69f3fd116a598b8b2a59bb1b";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
 
 </body>
 
