@@ -1096,6 +1096,99 @@
             min-width: 0;
         }
 
+        @media (max-width: 768px) {
+            .bonus-section {
+                padding: 36px 18px !important;
+            }
+
+            .bonus-container {
+                width: 100% !important;
+                max-width: 420px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 14px !important;
+            }
+
+            .bonus-row,
+            .bonus-row-center {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 14px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .bonus-card {
+                width: 100% !important;
+                background: #F5EBDD !important;
+                border: 2px solid #ecc278 !important;
+                border-radius: 14px !important;
+                padding: 12px !important;
+                display: grid !important;
+                grid-template-columns: 96px 1fr !important;
+                gap: 12px !important;
+                align-items: center !important;
+                text-align: left !important;
+                box-shadow: none !important;
+            }
+
+            .bonus-img {
+                width: 96px !important;
+                height: 96px !important;
+                max-height: none !important;
+                object-fit: cover !important;
+                border-radius: 10px !important;
+                margin: 0 !important;
+                background: #ffffff !important;
+            }
+
+            .bonus-card-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .bonus-card-title {
+                font-size: 15px !important;
+                line-height: 1.2 !important;
+                font-weight: 800 !important;
+                color: #351d1b !important;
+                margin-bottom: 4px !important;
+                text-align: left !important;
+            }
+
+            .bonus-price {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                gap: 6px !important;
+                margin: 0 0 4px 0 !important;
+            }
+
+            .bonus-old-price {
+                font-size: 13px !important;
+                color: #9e7575 !important;
+                text-decoration: line-through !important;
+                font-weight: 600 !important;
+            }
+
+            .bonus-free {
+                font-size: 14px !important;
+                color: #16a34a !important;
+                font-weight: 800 !important;
+            }
+
+            .bonus-card-desc,
+            .bonus-description {
+                font-size: 13px !important;
+                line-height: 1.28 !important;
+                color: #5a403a !important;
+                margin-top: 4px !important;
+                display: block !important;
+            }
+        }
+
         @media (max-width: 479px) {
             .bonus-card {
                 padding: 10px;
@@ -1147,11 +1240,12 @@
             }
 
             .bonus-container {
-                max-width: 900px;
+                max-width: 1100px;
             }
 
             .bonus-row {
                 gap: 20px;
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .bonus-row-center {
@@ -1174,6 +1268,19 @@
             user-select: none;
             -webkit-user-select: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bonus-card-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .bonus-card-desc {
+            font-size: 12px;
+            color: #5a403a;
+            line-height: 1.3;
+            margin-top: 6px;
         }
 
         .bonus-card:hover {
@@ -2156,7 +2263,7 @@
         }
     </style>
 
- <script>
+    <script>
         // Clarity - carregamento atrasado (5 segundos ou após interação)
         function loadClarity() {
             if (window.clarityLoaded) return;
@@ -2187,7 +2294,7 @@
     <!-- HERO SECTION -->
     <section class="hero-section">
         <h1 class="hero-headline">
-            <span class="highlight">+150 Dinâmicas Lúdicas</span><br> para uma Catequese Infantil<br> <span
+            <span class="highlight">+300 Dinâmicas Lúdicas</span><br> para uma Catequese Infantil<br> <span
                 class="highlight">Mais Divertida E Sem Improvisação</span>
         </h1>
         <p class="hero-subheadline">
@@ -2278,8 +2385,7 @@
         <!-- SEÇÃO: POR QUE ESCOLHER -->
         <section class="why-choose-section">
             <h2 class="why-choose-title">Por Que Escolhem Este Material?</h2>
-            <p class="why-choose-subtitle">Tudo que você precisa para conduzir encontros que as crianças amam, sem
-                improviso, sem estresse e sem perder horas planejando.</p>
+            <p class="why-choose-subtitle">Tudo que você precisa para conduzir encontros que as crianças amam.</p>
             <div class="why-grid">
                 <!-- CARD 1 -->
                 <div class="why-card">
@@ -2289,7 +2395,7 @@
                             <polyline points="22 4 12 14.01 9 11.01"></polyline>
                         </svg>
                     </div>
-                    <h3 class="why-card-title">+150 Dinâmicas Testadas e Aprovadas</h3>
+                    <h3 class="why-card-title">+300 Dinâmicas Testadas e Aprovadas</h3>
                     <p class="why-card-desc">Cada dinâmica foi pensada especialmente para crianças. Lúdicas, prática e
                         pronta pra engajar sua turma do primeiro ao último minuto.</p>
                 </div>
@@ -2350,10 +2456,14 @@
                     <div class="bonus-card">
                         <img src="bonus1.webp" alt="Bônus 1" class="bonus-img" width="160" height="120" loading="lazy"
                             decoding="async">
-                        <h3 class="bonus-card-title">80 Orações Dinâmicas para Catequese Infantil</h3>
-                        <div class="bonus-price">
-                            <span class="bonus-old-price">De R$47</span>
-                            <span class="bonus-free">GRÁTIS</span>
+                        <div class="bonus-card-content">
+                            <h3 class="bonus-card-title">+100 ATIVIDADES CRIATIVAS PRONTAS PARA IMPRIMIR</h3>
+                            <div class="bonus-price">
+                                <span class="bonus-old-price">De R$47</span>
+                                <span class="bonus-free">GRÁTIS</span>
+                            </div>
+                            <p class="bonus-card-desc">Atividades lúdicas e criativas para complementar seus encontros,
+                                prontos para imprimir e entregar para as crianças.</p>
                         </div>
                     </div>
 
@@ -2361,10 +2471,14 @@
                     <div class="bonus-card">
                         <img src="bonus2.webp" alt="Bônus 2" class="bonus-img" width="160" height="120" loading="lazy"
                             decoding="async">
-                        <h3 class="bonus-card-title">60 Encontros de Catequese Prontos para Aplicar</h3>
-                        <div class="bonus-price">
-                            <span class="bonus-old-price">De R$47</span>
-                            <span class="bonus-free">GRÁTIS</span>
+                        <div class="bonus-card-content">
+                            <h3 class="bonus-card-title">+200 ENCONTROS PRONTOS (PARA CADA TEMPO LITÚRGICO)</h3>
+                            <div class="bonus-price">
+                                <span class="bonus-old-price">De R$67</span>
+                                <span class="bonus-free">GRÁTIS</span>
+                            </div>
+                            <p class="bonus-card-desc">Encontros completos organizados por Advento, Natal, Quaresma,
+                                Páscoa e Tempo Comum.</p>
                         </div>
                     </div>
 
@@ -2372,10 +2486,29 @@
                     <div class="bonus-card">
                         <img src="bonus3.webp" alt="Bônus 3" class="bonus-img" width="160" height="120" loading="lazy"
                             decoding="async">
-                        <h3 class="bonus-card-title">Atividades Criativas Prontas Para Imprimir</h3>
-                        <div class="bonus-price">
-                            <span class="bonus-old-price">De R$47</span>
-                            <span class="bonus-free">GRÁTIS</span>
+                        <div class="bonus-card-content">
+                            <h3 class="bonus-card-title">+70 ORAÇÕES DINÂMICAS CATEQUESE INFANTIL</h3>
+                            <div class="bonus-price">
+                                <span class="bonus-old-price">De R$27</span>
+                                <span class="bonus-free">GRÁTIS</span>
+                            </div>
+                            <p class="bonus-card-desc">Orações simples e envolventes adaptadas para crianças, feche
+                                cada encontro com um momento de fé inesquecível.</p>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 BÔNUS -->
+                    <div class="bonus-card">
+                        <img src="bonus4.webp" alt="Bônus 4" class="bonus-img" width="160" height="120" loading="lazy"
+                            decoding="async">
+                        <div class="bonus-card-content">
+                            <h3 class="bonus-card-title">PLANNER PRONTO PARA IMPRIMIR</h3>
+                            <div class="bonus-price">
+                                <span class="bonus-old-price">De R$56</span>
+                                <span class="bonus-free">GRÁTIS</span>
+                            </div>
+                            <p class="bonus-card-desc">Imprima, preencha e organize todos os seus encontros, sem
+                                bagunça, sem esquecimento e sem estresse.</p>
                         </div>
                     </div>
                 </div>
@@ -2384,7 +2517,7 @@
 
             <a href="https://pay.wiapy.com/2Ax2K8uZpJ" class="bonus-total-block"
                 style="text-decoration: none; cursor: pointer;">
-                🤎 Total dos bônus: <span class="strike">R$141</span> → <strong>GRÁTIS HOJE!</strong>
+                🤎 Total dos bônus: <span class="strike">R$197</span> → <strong>GRÁTIS HOJE!</strong>
             </a>
         </section>
 
@@ -2405,7 +2538,7 @@
                         <span class="price-sub">pagamento único</span>
                     </div>
 
-                    <div class="price-savings">Economize R$40 + R$141 em bônus</div>
+                    <div class="price-savings">Economize R$40 + R$197 em bônus</div>
 
                     <div class="pricing-divider"></div>
 
@@ -2413,7 +2546,7 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> +300 Dinâmicas Lúdicas para Catequese Infantil</li>
+                            </svg> +500 Dinâmicas Lúdicas para Catequese Infantil</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -2437,13 +2570,15 @@
                     </ul>
 
                     <div class="premium-bonus-box">
-                        <div class="bonus-title">🎁 + 3 BÔNUS EXCLUSIVOS</div>
+                        <div class="bonus-title">🎁 + 4 BÔNUS EXCLUSIVOS</div>
                         <ul class="bonus-list">
-                            <li><span class="gift-icon">🎁</span> BÔNUS 1: 80 Orações Dinâmicas para Catequese Infantil
+                            <li><span class="gift-icon">🎁</span> BÔNUS 1: +100 ATIVIDADES CRIATIVAS PRONTAS PARA
+                                IMPRIMIR
                             </li>
-                            <li><span class="gift-icon">🎁</span> BÔNUS 2: 60 Encontros de Catequese Prontos para
-                                Aplicar</li>
-                            <li><span class="gift-icon">🎁</span> BÔNUS 3: Atividades Criativas Prontas Para Imprimir
+                            <li><span class="gift-icon">🎁</span> BÔNUS 2: +200 ENCONTROS PRONTOS (PARA CADA TEMPO
+                                LITÚRGICO)</li>
+                            <li><span class="gift-icon">🎁</span> BÔNUS 3: +70 ORAÇÕES DINÂMICAS CATEQUESE INFANTIL
+                            <li><span class="gift-icon">🎁</span> BÔNUS 4: PLANNER PRONTO PARA IMPRIMIR</li>
                             </li>
                         </ul>
                     </div>
@@ -2497,7 +2632,7 @@
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg> +150 Dinâmicas (somente material principal)</li>
+                            </svg> +300 Dinâmicas (somente material principal)</li>
                         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
@@ -2544,6 +2679,14 @@
                             <img src="pv4.webp" alt="Prova Social 4" class="testimonial-img" width="340" height="200"
                                 loading="lazy" decoding="async">
                         </div>
+                        <div class="carousel-slide">
+                            <img src="pv5.webp" alt="Prova Social 5" class="testimonial-img" width="340" height="200"
+                                loading="lazy" decoding="async">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="pv6.webp" alt="Prova Social 6" class="testimonial-img" width="340" height="200"
+                                loading="lazy" decoding="async">
+                        </div>
                     </div>
                 </div>
 
@@ -2565,6 +2708,8 @@
                     <button class="dot" data-index="1" aria-label="Slide 2"></button>
                     <button class="dot" data-index="2" aria-label="Slide 3"></button>
                     <button class="dot" data-index="3" aria-label="Slide 4"></button>
+                    <button class="dot" data-index="4" aria-label="Slide 5"></button>
+                    <button class="dot" data-index="5" aria-label="Slide 6"></button>
                 </div>
             </div>
 
@@ -3239,7 +3384,7 @@
 
                 track.style.transition = 'transform 0.4s ease-out';
                 track.style.transform = `translateX(${-currentIndex * 100}%)`;
-                
+
                 dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
                 resetAutoplay();
             }
@@ -3369,22 +3514,23 @@
         });
     </script>
 
-<script>
-  window.pixelId = "69f3fd116a598b8b2a59bb1b";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+    <script defer>
+        // Utmify tracker - carregamento atrasado
+        function loadUtmifyTracker() {
+            if (window.utmifyTrackerLoaded) return;
+            window.utmifyTrackerLoaded = true;
+            var s = document.createElement("script");
+            s.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+            s.setAttribute("data-utmify-prevent-xcod-sck", "");
+            s.setAttribute("data-utmify-prevent-subids", "");
+            s.setAttribute("async", "async");
+            document.head.appendChild(s);
+        }
+        setTimeout(loadUtmifyTracker, 4000);
+        ['scroll', 'click', 'touchstart', 'mousemove'].forEach(function (event) {
+            window.addEventListener(event, loadUtmifyTracker, { once: true, passive: true });
+        });
+    </script>
 
 </body>
 
